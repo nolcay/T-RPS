@@ -22,25 +22,18 @@ loop do
         a = ""
         loop {
           a = player.gets.chop
-          puts "yay got input " + a
           break if ["r", "p", "s"].include?(a)
         }
-        puts "yay passed loop"
         b = %w/r p s/.sample
-        puts "yay sampled"
         if a == b
-          puts "yay evaluated if"
           player.puts a + " - " + b + " Tie. " + score.join(" - ")
         elsif (a == "r" and b == "s") or (a == "s" and b == "p") or (a == "p" and b == "r")
-          puts "yay evaluated if"
           score[0] += 1
           player.puts a + " - " + b + " You win! " + score.join(" - ")
         else
-          puts "yay evaluated if"
           score[1] += 1
           player.puts a + " - " + b + " You lose. " + score.join(" - ")
         end
-        puts "yay passed if"
         break if score.include?(2)
       end
       if score[0] == 2
