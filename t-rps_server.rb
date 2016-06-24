@@ -1,7 +1,7 @@
 require "socket"
 require "twitter"
 require "json"
-auth = JSON.parse(File.read("trpsauth.json"))
+auth = JSON.parse(File.read("trpsauth-example.json"))
 twitclient = Twitter::REST::Client.new do |config|
   config.consumer_key    = auth["ck"]
   config.consumer_secret = auth["cs"]
